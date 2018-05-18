@@ -4,7 +4,7 @@ function sqlite_query() {
 	fi
 	DB=$1
 	QUERY=$2
-	sqlite3 $DB "$QUERY" -line
+	sqlite3 "$DB" "$QUERY" -line
 }
 
 sqlite_read_line () {
@@ -16,7 +16,7 @@ sqlite_read_line () {
 }
 
 function sqlite_create_fetch_array() {
-	result=$(sqlite_query $1 "$2")
+	result=$(sqlite_query "$1" "$2")
 	if [[ $? -eq 1 ]]; then
 		return 1
 	fi
